@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .result-box {
+            background-color: #2b2b2b;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 0 10px #00d1b2;
+            max-width: 700px;
+        }
+        h1 {
+            color: #00d1b2;
+            font-size: 28px;
+        }
+        .title {
+            font-size: 20px;
+            color: #cccccc;
+            margin-bottom: 25px;
+        }
+        p {
+            font-size: 20px;
+        }
+        .interpretation {
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            font-size: 18px;
+            text-align: left;
+        }
+        .interpretation-title {
+            color: #00d1b2;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        a, button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #00d1b2;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        a:hover, button:hover {
+            background: #00b89c;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>🩺 Medical Image Analysis </h1>
+        <div class="title">Diagnosis Result</div>
+        <p>The uploaded X-ray is predicted as: <strong>{{ prediction }}</strong></p>
+
+        {% if summary %}
+        <div class="interpretation">
+            <div class="interpretation-title">Interpretation by AI</div>
+            {{ summary }}
+        </div>
+        {% endif %}
+
+        <div>
+            <a href="{{ url_for('index') }}">🔙 Back</a>
+            <a href="{{ url_for('download_pdf', filename=pdf_path) }}">⬇ Download PDF</a>
+            <a href="/history">📜 View History</a>
+        </div>
+    </div>
+</body>
+</html>

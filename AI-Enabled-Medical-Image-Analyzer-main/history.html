@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+        th {
+            background-color: #00d1b2;
+        }
+        a {
+            color: #00d1b2;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📜 Prediction History</h1>
+    <table>
+        <tr>
+            <th>File Name</th>
+            <th>Prediction</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for entry in history %}
+        <tr>
+            <td>{{ entry.filename }}</td>
+            <td>{{ entry.prediction }}</td>
+            <td>{{ entry.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">⬅ Back to Home</a>
+</body>
+</html>
